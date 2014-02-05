@@ -6,7 +6,6 @@ import at.irian.cdiatwork.ideafork.backend.impl.monitoring.Monitored;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import java.io.*;
-import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
