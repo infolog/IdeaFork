@@ -1,6 +1,7 @@
 package at.irian.cdiatwork.ideafork.backend.api.repository.idea;
 
 import at.irian.cdiatwork.ideafork.backend.api.domain.idea.Idea;
+import at.irian.cdiatwork.ideafork.backend.impl.monitoring.Monitored;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Monitored
 public class IdeaRepository {
     @Inject
     private Event<Idea> ideaSavedEvent;
