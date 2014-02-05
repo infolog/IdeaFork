@@ -23,13 +23,33 @@ public class DefaultMonitoredInterceptorStrategy implements MonitoredInterceptor
         try {
             return ic.proceed();
         } finally {
-            if (isSlowInvocation(start)) {
+            Monitored monitored = extractMonitoredAnnotation(ic);
+            int maxThreshold = monitored.maxThreshold();
+
+            if (maxThreshold < 1) {
+                maxThreshold = this.applicationConfig.getMethodInvocationThreshold();
+            }
+
+            if (isSlowInvocation(start, maxThreshold)) {
                 this.monitoredStorage.recordSlowMethod(ic.getTarget().getClass().getName() + "#" + ic.getMethod().getName());
             }
         }
     }
 
-    protected boolean isSlowInvocation(long start) {
-        return System.currentTimeMillis() - start > applicationConfig.getMethodInvocationThreshold();
+    private Monitored extractMonitoredAnnotation(InvocationContext ic) {
+        Monitored result = ic.getMethod().getAnnotation(Monitored.class);
+
+        if (result == null) {
+            result = ic.getTarget().getClass().getAnnotation(Monitored.class);
+        }
+
+        if (result == null) { //needed for some versions of weld
+            result = ic.getTarget().getClass().getSuperclass().getAnnotation(Monitored.class);
+        }
+        return result;
+    }
+
+    protected boolean isSlowInvocation(long start, int maxThreshold) {
+        return System.currentTimeMillis() - start > maxThreshold;
     }
 }
