@@ -17,6 +17,14 @@
         <tomee-api.version>6.0-6</tomee-api.version>
     </properties>
 
+    <repositories>
+        <!-- needed for the relative-resource-handler -->
+        <repository>
+            <id>apache-extras-mirror</id>
+            <url>https://raw.githubusercontent.com/os890/os890-m2-repository/master/apache-extras/</url>
+        </repository>
+    </repositories>
+
     <build>
         <finalName>IdeaFork_EE6</finalName>
         <plugins>
@@ -51,6 +59,12 @@
             <artifactId>myfaces-api</artifactId>
             <version>${myfaces-core.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apacheextras.myfaces</groupId>
+            <artifactId>relative-resource-handler</artifactId>
+            <version>0.9.0</version>
         </dependency>
     </dependencies>
 
