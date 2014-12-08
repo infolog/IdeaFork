@@ -97,6 +97,7 @@
                     <resource>
                         <directory>src/main/resources/META-INF</directory>
                         <includes>
+                            <include>validation.xml</include>
                             <include>relative-resources.xml</include>
                             <include>services/javax.enterprise.inject.spi.Extension</include>
                         </includes>
@@ -172,6 +173,7 @@
                     <resource>
                         <directory>src/main/resources/META-INF</directory>
                         <includes>
+                            <include>validation.xml</include>
                             <include>relative-resources.xml</include>
                             <include>services/javax.enterprise.inject.spi.Extension</include>
                         </includes>
@@ -276,6 +278,7 @@
                     <resource>
                         <directory>src/main/resources/META-INF</directory>
                         <includes>
+                            <include>validation.xml</include>
                             <include>relative-resources.xml</include>
                             <include>services/javax.enterprise.inject.spi.Extension</include>
                         </includes>
