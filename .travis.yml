@@ -1,2 +1,2 @@
 language: java
-script: mvn clean package -Dds.version=1.5.1-SNAPSHOT
+script: mvn clean install -Dds.version=1.5.1-SNAPSHOT
