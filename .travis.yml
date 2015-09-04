@@ -1,2 +1,6 @@
 language: java
-script: mvn clean install -Dds.version=1.5.1-SNAPSHOT
+script:
+ - mvn clean install -Dds.version=1.5.1-SNAPSHOT -POWB -PTomEE
+ - mvn clean install -Dds.version=1.5.1-SNAPSHOT -PWeld
+ - mvn clean install -Dds.version=1.5.1-SNAPSHOT -PWeld -PJBoss
+ - mvn clean install -Dds.version=1.5.1-SNAPSHOT -PWeld -PGlassFish
