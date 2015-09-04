@@ -1,0 +1,18 @@
+default build (= OWB for core and TomEE for ee6):
+mvn clean package
+
+build to test core with Weld:
+mvn clean package -PWeld
+
+build to test core with OWB (explicitly):
+mvn clean package -POWB
+
+build to test the web-app:
+mvn clean package -PDeltaSpikeTest
+
+build web-archive for GlassFish3 (+ Weld)
+mvn clean package -PWeld -PGlassFish
+
+
+build web-archive for JBoss AS7 (+ Weld)
+mvn clean package -PWeld -PJBoss
